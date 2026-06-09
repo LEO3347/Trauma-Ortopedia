@@ -61,28 +61,28 @@ counters.forEach((counter) => counterObserver.observe(counter));
 const tourContent = {
   trauma: {
     icon: "fa-bone",
-    title: "Area de traumatologia",
-    text: "Se observo la jefatura de traumatologia, el area donde trabajan los medicos residentes y el pasillo de hospitalizacion para pacientes que seran operados."
+    title: "Área de traumatología",
+    text: "Se observó la jefatura de traumatología, el área donde trabajan los médicos residentes y el pasillo de hospitalización para pacientes que serán operados."
   },
   residentes: {
     icon: "fa-user-doctor",
-    title: "Medicos residentes",
-    text: "La visita permitio conversar con una doctora residente y conocer el proceso para llegar a la especialidad, sus retos y satisfacciones."
+    title: "Médicos residentes",
+    text: "La visita permitió conversar con una doctora residente y conocer el proceso para llegar a la especialidad, sus retos y satisfacciones."
   },
   hospitalizacion: {
     icon: "fa-bed-pulse",
-    title: "Hospitalizacion",
-    text: "El recorrido mostro pasillos de hospitalizacion para pacientes que seran operados y el trabajo colaborativo del personal de salud."
+    title: "Hospitalización",
+    text: "El recorrido mostró pasillos de hospitalización para pacientes que serán operados y el trabajo colaborativo del personal de salud."
   },
   rayos: {
     icon: "fa-x-ray",
     title: "Rayos X y resonancia",
-    text: "Por seguridad, las areas de rayos X y resonancia se observaron desde afuera durante la visita guiada."
+    text: "Por seguridad, las áreas de rayos X y resonancia se observaron desde afuera durante la visita guiada."
   },
   quirofanos: {
     icon: "fa-kit-medical",
-    title: "Quirofanos",
-    text: "La entrevista destaco que la traumatologia es quirurgica: el especialista participa en consulta, urgencias y quirofano."
+    title: "Quirófanos",
+    text: "La entrevista destacó que la traumatología es quirúrgica: el especialista participa en consulta, urgencias y quirófano."
   }
 };
 
