@@ -9,6 +9,11 @@
   --bg: #f5f9fc;
   --glass: rgba(255, 255, 255, .76);
   --shadow: 0 24px 70px rgba(15, 76, 129, .16);
+  --img-radiology: url("assets/hospital-room.jpg");
+  --img-xray: url("assets/medical-team.jpg");
+  --img-surgery: url("assets/xray-consult.jpg");
+  --img-rehab: url("assets/rehab.jpg");
+  --img-operating: url("assets/surgery-room.jpg");
 }
 
 * { box-sizing: border-box; }
@@ -157,8 +162,8 @@ button { font: inherit; }
 }
 .hero h1 {
   margin: 12px 0;
-  max-width: 11ch;
-  font-size: clamp(54px, 7.4vw, 96px);
+  max-width: 10ch;
+  font-size: clamp(66px, 10vw, 138px);
   line-height: .94;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -237,6 +242,65 @@ button { font: inherit; }
 }
 h3 { color: var(--deep-blue); margin: 20px 0 10px; }
 p, li { line-height: 1.65; color: var(--titanium); }
+
+.image-ribbon {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr 1fr;
+  gap: 18px;
+  margin-top: 26px;
+}
+.image-tile {
+  position: relative;
+  min-height: 320px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 28px;
+  background: center / cover no-repeat;
+  border: 1px solid rgba(255,255,255,.55);
+  box-shadow: var(--shadow);
+  isolation: isolate;
+}
+.image-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent 18%, rgba(0, 31, 61, .88) 100%);
+}
+.image-tile::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 22px;
+  pointer-events: none;
+}
+.image-tile figcaption {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+}
+.image-tile span {
+  color: var(--hospital-green);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.image-tile strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--white);
+  font-size: clamp(22px, 2.5vw, 34px);
+  line-height: 1.05;
+}
+.image-tile:hover {
+  transform: translateY(-8px) scale(1.01);
+  transition: transform .28s ease;
+}
+.tile-radiology { background-image: var(--img-radiology); }
+.tile-surgery { background-image: var(--img-surgery); }
+.tile-rehab { background-image: var(--img-rehab); }
 
 .quote-band {
   margin: 12px clamp(18px, 6vw, 86px);
@@ -370,7 +434,8 @@ p, li { line-height: 1.65; color: var(--titanium); }
   padding: clamp(32px, 6vw, 76px);
   color: var(--white);
   background:
-    linear-gradient(110deg, rgba(0,53,102,.94), rgba(15,76,129,.72)),
+    linear-gradient(110deg, rgba(0,53,102,.95), rgba(15,76,129,.76), rgba(0,184,148,.24)),
+    var(--img-radiology) center / cover no-repeat,
     repeating-linear-gradient(90deg, transparent 0 36px, rgba(255,255,255,.08) 36px 37px);
   box-shadow: var(--shadow);
   margin-bottom: 24px;
@@ -426,7 +491,9 @@ p, li { line-height: 1.65; color: var(--titanium); }
   border-radius: 28px;
   padding: 36px;
   color: var(--white);
-  background: linear-gradient(135deg, var(--deep-blue), var(--medical-blue));
+  background:
+    linear-gradient(135deg, rgba(0,53,102,.94), rgba(15,76,129,.82)),
+    var(--img-surgery) center / cover no-repeat;
   box-shadow: var(--shadow);
 }
 .tour-panel i { font-size: 48px; color: var(--hospital-green); }
@@ -472,12 +539,19 @@ p, li { line-height: 1.65; color: var(--titanium); }
   align-content: center;
   gap: 18px;
   color: var(--white);
-  background: linear-gradient(135deg, var(--medical-blue), var(--hospital-green));
+  background:
+    linear-gradient(135deg, rgba(15,76,129,.84), rgba(0,184,148,.66)),
+    var(--img-radiology) center / cover no-repeat;
   box-shadow: var(--shadow);
   font-weight: 900;
   font-size: 22px;
 }
 .swiper-slide i { font-size: 58px; }
+.swiper-slide:nth-child(1) { background-image: linear-gradient(135deg, rgba(15,76,129,.84), rgba(0,184,148,.66)), var(--img-xray); }
+.swiper-slide:nth-child(2) { background-image: linear-gradient(135deg, rgba(15,76,129,.84), rgba(0,184,148,.66)), var(--img-radiology); }
+.swiper-slide:nth-child(3) { background-image: linear-gradient(135deg, rgba(15,76,129,.84), rgba(0,184,148,.66)), var(--img-rehab); }
+.swiper-slide:nth-child(4) { background-image: linear-gradient(135deg, rgba(15,76,129,.84), rgba(0,184,148,.66)), var(--img-operating); }
+.swiper-slide:nth-child(5) { background-image: linear-gradient(135deg, rgba(15,76,129,.84), rgba(0,184,148,.66)), url("assets/hero-traumatologia.jpg"); }
 
 .why { color: var(--white); background: linear-gradient(135deg, var(--deep-blue), var(--medical-blue)); }
 .why .section-heading h2, .why .section-heading p { color: var(--white); }
@@ -540,6 +614,8 @@ p, li { line-height: 1.65; color: var(--titanium); }
 @media (max-width: 980px) {
   .hero, .split, .body-model, .map-panel, .footer { grid-template-columns: 1fr; }
   .hero-stats, .feature-grid, .profile-columns, .hospital-grid, .philosophy-grid, .experience-grid, .injury-grid, .why-grid { grid-template-columns: 1fr; }
+  .image-ribbon { grid-template-columns: 1fr; }
+  .image-tile { min-height: 280px; }
   .roadmap, .labor-grid { grid-template-columns: repeat(2, 1fr); }
   .timeline::before { left: 0; }
   .timeline-item, .timeline-item:nth-child(even) { width: auto; margin-left: 28px; }
